@@ -2,4 +2,3 @@ untitled.tex
 To_simplify_searching_a_large__.tex
 figures/fig3/fig3.jpg
 Many_mechanisms_have_been_proposed__.tex
-section_Method__.tex
