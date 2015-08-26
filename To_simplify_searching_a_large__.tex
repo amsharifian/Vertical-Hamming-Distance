@@ -2,7 +2,9 @@ To simplify searching a large database such as the human genome there are two ma
 
 During few years ago several mappers have been developed. These mappers basically work base on two approaches: 1)hash table based, using in seed and extend approach and 2) suffixarray and genome compression based mappers that utilize the Burrows-Wheeler Transform and the FerraginaManzini index (BWT-FM).  mrFAST/mrsFASt \cite{mrfast}\cite{mrsfast}, drFAST\cite{drfast} and RazerS\cite{razers} are examples of hash table based method and mappers such as BWA\cite{bwa} and Bowtie\cite{bowtie} are examples for BWT-FM approach. 
 
+To compare these  methods with each other there are three metrics: \emph{speed (or performance)}, \emph{sensitivity} and \emph{comprehensiveness}. Essantially, hash table based mappers are more sensitive in compare with suffix-array based mappers but in cost of speed and performance. In addition, they are more comprehensive and more robust to sequence errors and genomic diversity.
 
+The relatively slow speed of hash table based mappers is due to their high sensitivity and comprehensiveness. Such mappers first index fixed-length seeds (also called \emph{k-mers}), typically 10-13 base-pair-long DNA fragments from the reference genome, into a hash table or a similar data structure. Next, they divide each query read into smaller fixed length seeds to query the hash table for their associated seed locations. Finally, they try to extend the read at each of the seed locations by aligning the read to the reference fragment at the seed location via dynamic programming algorithms such as Needleman-Wunsch \cite{needleman} and SmithWaterman \cite{smith1981identification}, or \emph{simple Hamming distance} calculation for greater speed at the cost of missing potential mappings that contain insertions/deletions (indels). 
   
   
   
