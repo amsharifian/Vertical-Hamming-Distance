@@ -3,4 +3,4 @@ figures/fig3/fig3.jpg
 Many_mechanisms_have_been_proposed__.tex
 figures/Untitled/Untitled.png
 figures/Untitled3/Untitled3.png
-subsection_Comparision_algorithm_VHD_compares__.tex
+subsection_Comparision_algorithm_For_comparing__.tex
