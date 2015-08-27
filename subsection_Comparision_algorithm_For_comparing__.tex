@@ -11,11 +11,12 @@ As we mentioned in the introduction part user defined error threshold is usually
 First step for filtering out our data is to computing number of errors and comparing it with \emph{e} for each segment. Instead of summing up segment's results and do comparision with \emph{e} in the last step we can compare each segment's result with \emph{e} sepratly. Therefore, we are doing more operations for correct reads since instead of counting number of ones in the result vector once and then compare it with the error threshold we are counting number of ones per each segment and then compare it with error thershold.  But the point is we are doing these additional computations for just $2\%$ of our total reads and for the rest of the reads we are saving instructions because now per each segment we can decide that whether we have passed error threshold or not and if yes we can stop comparision operation for that read and start comparing next read with our reference. Now base on our word processor's length (\emph{w}) and our read's length (\emph{l}) we can compute number of operations we are doing for each read.
 
 \begin{equation}
-n_{segments} =  \lceil \frac{l}{w} \rceil \newline
+n_{segments} =  \lceil \frac{l}{w} \rceil \\
 
 
 n_operations = n_XOR + n_OR + n_popcnt + n_gt
 \end{equation}  
+  
   
   
   
