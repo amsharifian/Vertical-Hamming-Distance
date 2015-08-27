@@ -20,15 +20,5 @@ n_{popcnt} = n_{gt} = n_{segment} \\
 
 \end{equation}  
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+Now number of operations we are doing to comparing reads with a reference would be depend on the size of our word processor. In modern CPUs $w$ is usually 32 or 64 (and if we use SIMD operations our register's length can be 128 or more). For instance if our word processor length is equal to 64 and our read's length is 100 then first segment would contain $64\%$ of our read. In other words we still using big portion of reads to determine should we continue our comparison procedure or should we stop since even in the first $64%$ number of errors exceed \emph{e}. According to Figure ... using first $64\%$ of each reads can filter out nearly .... of our data with comparing just first segment.
+But what if we can answer this fact with even less comparison. For instance with only using $16\%$ of our read and comparing it with our reference we can answer the question
