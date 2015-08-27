@@ -6,9 +6,9 @@ In VHD we have focused on two points:
   
  VHD combines two techniques to achieve the goals. First it uses bit-parallel method to store and run the tools. Bit-parallel method is designed to fully utilize the entire width of the processor words to reduce the number of instructions that are needed to process data. Second, we apply  our filter on our data to reduce number of computation meanwhile our bit-parallel algorithm is running. Morover to increase our filtering power we consider how A,C,G,T should code to have better filtering. Finally we introduce another technique to predict next data that is going to fetch.
  
- The VHD storage layout is inspired by the bit-sliced method \cite{O_Neil_1997}. 
  \subsection{storage layout}
- In VHD, each sequence break down to fixed-length segments, each of which contains w codes( w is width of processor word). If we code our alphabet with \emph{k} bits then, the \emph{w} k-bit codes in a segment are then transposed into \emph{k} w-bit words. In Figure\ref{fig:fig2} there is an example to how we transpose our data. Data genomic data sets have five character A,C,G,T,N(unknown). If code each character we three bits, A(001), C(010), G(011), T(100), then. Inside a segment, the k words are physically stored in a continuous memory space.
+The VHD storage layout is inspired by the bit-sliced method \cite{O_Neil_1997}. In VHD, each sequence break down to fixed-length segments, each of which contains w codes( w is width of processor word). If we code our alphabet with \emph{k} bits then, the \emph{w} k-bit codes in a segment are then transposed into \emph{k} w-bit words. In Figure\ref{fig:fig2} there is an example to how we transpose our data. Data genomic data sets have five character A,C,G,T,N(unknown). If code each character we three bits, A(001), C(010), G(011), T(100), then. Inside a segment, the k words are physically stored in a continuous memory space.
  
+  
   
   
