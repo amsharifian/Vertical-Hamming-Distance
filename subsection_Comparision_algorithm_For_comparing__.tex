@@ -1,5 +1,3 @@
 \subsection{Comparision algorithm}
 For comparing values of two word processor we just need to do a simple XOR operation. If we apply XOR on two word processor in fact we are comparing two words bit by bit and the result would be another word processor having 0 if two bits in the same position matched otherwise it's 1. In VHD each bit is coding one character in a read. Thus, our XOR result shows how many of \emph{base pairs (bp)} between two strings matched (0s) and how many didn't match (1s). However, since we are coding our base pairs with three bits, we should do XOR for each level separately and then accumulate our final result with applying OR operation  on all results. 
   
-  
-  
