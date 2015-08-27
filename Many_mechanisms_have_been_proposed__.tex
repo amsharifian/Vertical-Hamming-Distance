@@ -1,4 +1,19 @@
 Many mechanisms have been proposed to efficiently calculate the edit-distance of strings and filter out incorrect mappings. These mechanisms can be divided into five main classes: (i) dynamic programming (DP) algorithms, (ii) SIMD implementations of DP algorithms, (iii) bit-vector implementations of DP algorithms, (iv) Hamming distance calculation, and (v) locality-based filtering mechanisms. For instance \cite{swps3} uses approach ii, \cite{seqan} uses approach iii, fastHASH\cite{fasthash} uses v approach. The nearest approach to VHD which uses bit-parallelism and SIMD instructions to achieve better performance is Shifted Hamming Distance (SHD)\cite{shd}. SHD by itself, however, is not an edit-distance calculator. SHD is a filter that detects and filters some of the string pairs that have edit-distances that are greater than T, but it does not validate the string pairs that pass the filter regarding if they have edit-distances smaller than T.
   
+In VHD we have focused on two points:
+\begin{itemize}
+\item Speeding up computing hamming distance between two strings
+\item Filtering out data to reduce number of computations.
+\end{itemize}
+  
+ VHD combines two techniques to achieve the goals. First it uses bit-parallel method to store and run the tools. Bit-parallel method is designed to fully utilize the entire width of the processor words to reduce the number of instructions that are needed to process data. Second, we apply  our filter on our data to reduce number of computation meanwhile our bit-parallel algorithm is running. Morover to increase our filtering power we consider how A,C,G,T should code to have better filtering. Finally we introduce another technique to predict next data that is going to fetch.
+ 
+ \subsection{storage layout}
+The VHD storage layout is inspired by the bit-sliced method \cite{O_Neil_1997}. In VHD, each sequence break down to fixed-length segments, each of which contains w codes( w is width of processor word). If we code our alphabet with \emph{k} bits then, the \emph{w} k-bit codes in a segment are then transposed into \emph{k} w-bit words. In Figure\ref{fig:fig2} there is an example to how we transpose our data. Data genomic data sets have five character A,C,G,T,N(unknown). We have coded each character with three bits, A(001), C(010), G(011), T(100). Our read in the example is "AACGTTGAAACG" and its length is 12. We assumed our word processor length is equal to 8. With these assumptions we can divide our read into two segments. Since we our string's length is 12 in the second segment we will have four free slots, we fill those slots with zero. As a result, before segmenting our code we had 12 characters each of them with length of three. But after segmenting in each segment we have three 8-bit words. With this approach inside a segment, the k words are physically stored in a continuous memory space.
+ 
+  
+  
+  
+  
   
   
