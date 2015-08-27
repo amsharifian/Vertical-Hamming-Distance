@@ -12,13 +12,14 @@ First step for filtering out our data is to computing number of errors and compa
 
 \begin{equation}
 \nonumber
-n_{segments} =  \lceil \frac{l}{w} \rceil \\
 n_{operations} = n_{XOR} + n_{OR} + n_{popcnt} + n_{gt} \\
+n_{segments} =  \lceil \frac{l}{w} \rceil \\
 n_{XOR} = n_{segments} \times (k-1) \\
 n_{OR} = n_{segments} \times (k-1) \\
 n_{popcnt} = n_{gt} = n_{segment} \\
 
 \end{equation}  
+  
   
   
   
