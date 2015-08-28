@@ -5,4 +5,5 @@ figures/Untitled/Untitled.png
 figures/Untitled3/Untitled3.png
 subsection_Comparision_algorithm_For_comparing__.tex
 figures/Untitled4/Untitled4.png
+subsection_Filtering_As_we_mentioned__.tex
 section_Suggestions_Following_section_is__.tex
