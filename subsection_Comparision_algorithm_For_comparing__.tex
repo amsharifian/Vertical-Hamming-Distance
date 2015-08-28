@@ -3,6 +3,7 @@ For comparing values of two word processor we just need to do a simple XOR opera
 Since we are coding our base pairs with three bits, we should do XOR for each level separately and then accumulate our final result with applying OR operation  on all results. With this approach our final result would be a word processor which each of its bit will tell us whether two \textit{bp}s from two different strings matched or not. Next step would be computing number of miss matches between two strings. Since we have segmented our string into multiple segments for the last step we need to sum up each segment's result and then compare it with the user defined threshold \textit{e}. Figure \ref{fig:fig3} shows following procedure.
   
 \begin{figure}
+\includegraphics[\width=\linewidth]{figures/Untitled2}
 \end{figure}
 
 \subsection{Filtering}
@@ -51,6 +52,7 @@ Thus we can recognize T out of other three characters A, C, G with looking at on
 Base on above observation and our algorithm we can infer an important point. With suggested coding schema at first step (comparing highest bits) we are able to recognizing all substitution of T with A, C and G with only comparing highest bit of our character. In fact, our final output for highest bit is an vector of 0s and 1s which telling us at which location substitution of T with A, C and G have been happened.
 
  
+  
   
   
   
