@@ -39,6 +39,12 @@ First, to figure out valid reads we can use a secondary secondary data. For each
 Flag bits tell us what are the next reads we are going to copy to our word processor. There are two ways to fetch data into processor word, one way is each time when we are feeling the processor word first we can check flag of the read and decided whether we should copy it to our word processor or check the next flag. But then we have to do at least one additional comparing operation to decide. Another way is pre-computing reads we need to fetch. Suppose, we have stored reads in our memory and we just now beginning address of the reads in the memory. We need additional information about our data so that we can load them into our word processor without checking flags. We know that we are going to fetch 16 bits for each read but the problem is that we don't know where should we begin. Using flags in our previous part we can compute addresses we need to load our data from the memory. We use Fibonaci algorithm to compute distances from beginning address. Later, for loading data into our processor we just add distances to our beginning address and load correct data into our word processor. We called these distances \emph{Strides}. Using strides helps us to not checking flags each time we are trying to load our data and we just need to check flags once.
 
 \subsection{Coding}
-  
-  
-  
+In this section we talk about coding schema and its role in our algorithm. In our storage layout we describe how we are saving our data in vertical fashion. But how we can interpret this layout and use it to improve our performance.\\
+In storage layout we suggest to use below coding:
+ IMAGE, IMAGE, IMAGE
+ 
+If we just look at highest bit of the characters in this coding we have:
+IMAGE
+
+Thus we can recognize T out of other three characters A, C, G with looking at only their highest bit, since T is the only character which its highest bit is 1. The same would happen in their middle bits. Because of our coding schema we can recognize C and G out of A and T. Since, C and G's middle bit is 1 but A and T's middle bit is 0.\\
+Base on above observation and our algorithm we can infer an important point. With suggested coding schema at first step (comparing highest bits) we are able to recognizing all substitution of T with A, C and G with only comparing highest bit of our character. In fact, our final output for highest bit is an vector of 0s and 1s which telling us at which location substitution of T with A, C and G have been happened.
