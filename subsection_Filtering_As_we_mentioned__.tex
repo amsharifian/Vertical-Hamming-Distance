@@ -6,19 +6,10 @@ First step for filtering out our data is to computing number of errors and compa
 \begin{equation}
 \nonumber
 n_{operations} = n_{XOR} + n_{OR} + n_{popcnt} + n_{gt} \\
-
-
 n_{segments} =  \lceil \frac{l}{w} \rceil \\
-
-
 n_{XOR} = n_{segments} \times (k-1) \\
-
-
 n_{OR} = n_{segments} \times (k-1) \\
-
-
 n_{popcnt} = n_{gt} = n_{segment} \\
-
 \end{equation}  
   
 Now number of operations we are doing to comparing reads with a reference would be depend on the size of our word processor. In modern CPUs $w$ is usually 32 or 64 (and if we use SIMD operations our register's length can be 128 or more). For instance if our word processor length is equal to 64 and our read's length is 100 then first segment would contain $64\%$ of our read. In other words we still using big portion of reads to determine should we continue our comparison procedure or should we stop since even in the first $64\%$ number of errors exceed \emph{e}. According to Figure ... using first $64\%$ of each reads can filter out nearly .... of our data with comparing just first segment.\\
@@ -42,4 +33,5 @@ IMAGE
 
 Thus we can recognize T out of other three characters A, C, G with looking at only their highest bit, since T is the only character which its highest bit is 1. The same would happen in their middle bits. Because of our coding schema we can recognize C and G out of A and T. Since, C and G's middle bit is 1 but A and T's middle bit is 0.\\
 Base on above observation and our algorithm we can infer an important point. With suggested coding schema at first step (comparing highest bits) we are able to recognizing all substitution of T with A, C and G with only comparing highest bit of our character. In fact, our final output for highest bit is an vector of 0s and 1s which telling us at which location substitution of T with A, C and G have been happened.
+  
   
