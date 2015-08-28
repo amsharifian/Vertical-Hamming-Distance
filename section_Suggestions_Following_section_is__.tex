@@ -2,7 +2,7 @@
 
 Following section is description of three suggestions about future works.
 
-\subsection{Changing alphabet size}
+\subsection{Changing alphabet size} \label{alphabet}
 Till now size of the alphabet was four ($\Sigma = \{A,C,G,T\}$) but can increase size of our alphabet by coding two characters instead of one character. By coding two characters our alphabet would change to:
 
 \begin{equation}
@@ -24,6 +24,8 @@ With considering all above facts we can suggest a filter. In suggested filter we
 
 \begin{enumerate}
 \item Data level parallelism. How many reads we are going to compare in a same time? Our word processor's size is limited but we can choose number of reads we are going to load into a word processor with varying number of \underline{bits per reads}.
+\item Coding and Compression. How large is our alphabet? According to \ref{alphabet} section there is a trade of between last two mentioned points. Are we going to have a better detector by having \underline{smaller alphabet} or we will have weaker detector but instead we are going to look at \underline{bigger portion of the code} with bigger alphabet size?
 \end{enumerate}
+  
   
   
