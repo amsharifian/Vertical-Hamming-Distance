@@ -26,6 +26,9 @@ With considering all above facts we can suggest a filter. In suggested filter we
 \item Data level parallelism. How many reads we are going to compare in a same time? Our word processor's size is limited but we can choose number of reads we are going to load into a word processor with varying number of \underline{bits per reads}.
 \item Coding and Compression. How large is our alphabet? According to \ref{alphabet} section there is a trade of between last two mentioned points. Are we going to have a better detector by having \underline{smaller alphabet} or we will have weaker detector but instead we are going to look at \underline{bigger portion of the code} with bigger alphabet size?
 \end{enumerate}
+
+\subsection{Prefetching}
+In \ref{stride} section we suggested a secondary structure which helps us to predict data going to use in each iteration with computing distances of valid data from specific point of memory. Our suggested solution for this approach is improving memory controller and adding better prefetching capability to it. In Impulse \cite{impuls} similar approach is using for better prefetching.
   
   
   
