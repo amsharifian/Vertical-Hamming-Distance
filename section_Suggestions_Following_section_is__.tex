@@ -19,3 +19,6 @@ Following coding schema imposes multiple changes on our previous schema:
 \item Our filter's sensitivity will \emph{decrease}. In the first schema we could detect every substitution of, for instance, T to A, C and G. But now we are detecting all substitution of AT to rest of permutation of characters.
 \end{enumerate}
  
+\subsection{New filter}
+With considering all above facts we can suggest a filter. In suggested filter we can just compare limited number of highest bit of our reads and filter out big portion of them without doing full computation and even without transfering large portion of our data.
+  
