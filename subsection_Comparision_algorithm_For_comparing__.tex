@@ -1,6 +1,6 @@
 \subsection{Comparision algorithm}
 For comparing values of two word processor we just need to do a simple XOR operation. If we apply XOR on two word processor in fact we are comparing two words bit by bit and the result would be another word processor having 0 if two bits in the same position matched otherwise it's 1. In VHD each bit is coding one character in a read. Thus, our XOR result shows how many of \emph{base pairs (bp)} between two strings matched (0s) and how many didn't match (1s).
-Since we are coding our base pairs with three bits, we should do XOR for each level separately and then accumulate our final result with applying OR operation  on all results. With this approach our final result would be a word processor which each of its bit will tell us whether two \textit{bp}s from two different strings matched or not. Next step would be computing number of miss matches between two strings. Since we have segmented our string into multiple segments for the last step we need to sum up each segment's result and then compare it with the user defined threshold \textit{e}. Figure \ref{fig:fig3} shows following procedure.
+Since we are coding our base pairs with three bits, we should do XOR for each level separately and then accumulate our final result with applying OR operation  on all results. With this approach our final result would be a word processor which each of its bit will tell us whether two \textit{bp}s from two different strings matched or not. Next step would be computing number of miss matches between two strings. Since we have segmented our string into multiple segments for the last step we need to sum up each segment's result and then compare it with the user defined threshold \textit{e}. Figure \ref{fig:fig4} shows following procedure.
   
 \subsection{Filtering}
 As we mentioned in the introduction part user defined error threshold is between $0\%$ and $5\%$ of mappings length and read's length is usually between 80 till 120 bps which means our error threshold won't be bigger than 5 or 6 errors and as a result nearly $98\%$ of our mappings would be incorrect. These numbers show that if we don't filter out our data approximately $98\%$ of our computation would be useless. 
@@ -48,6 +48,7 @@ Thus we can recognize T out of other three characters A, C, G with looking at on
 Base on above observation and our algorithm we can infer an important point. With suggested coding schema at first step (comparing highest bits) we are able to recognizing all substitution of T with A, C and G with only comparing highest bit of our character. In fact, our final output for highest bit is an vector of 0s and 1s which telling us at which location substitution of T with A, C and G have been happened.
 
  
+  
   
   
   
