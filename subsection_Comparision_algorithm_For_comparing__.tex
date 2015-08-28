@@ -13,9 +13,17 @@ First step for filtering out our data is to computing number of errors and compa
 \begin{equation}
 \nonumber
 n_{operations} = n_{XOR} + n_{OR} + n_{popcnt} + n_{gt} \\
+
+
 n_{segments} =  \lceil \frac{l}{w} \rceil \\
+
+
 n_{XOR} = n_{segments} \times (k-1) \\
+
+
 n_{OR} = n_{segments} \times (k-1) \\
+
+
 n_{popcnt} = n_{gt} = n_{segment} \\
 
 \end{equation}  
@@ -30,4 +38,5 @@ First, to figure out which read is valid or not we can use a secondary flags. Fo
 
 Flag bits tell us what are the next reads we are going to copy to our word processor. There are two ways to fetch data into processor word, one way is each time when we are feeling the processor word first we can check flag of the read and decided whether we should copy it to our word processor or check the next flag. But then we have to do at least one additional comparing operation to decided. Another way is pre-computing reads that we need to fetch. We can use another secondary data structure telling us distance of the reads relative to the first read. We call it \emph{stride}. Using stride data structure helps us to 
 
+  
   
