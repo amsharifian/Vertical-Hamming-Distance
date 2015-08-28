@@ -20,5 +20,10 @@ Following coding schema imposes multiple changes on our previous schema:
 \end{enumerate}
  
 \subsection{New filter}
-With considering all above facts we can suggest a filter. In suggested filter we can just compare limited number of highest bit of our reads and filter out big portion of them without doing full computation and even without transfering large portion of our data.
+With considering all above facts we can suggest a filter. In suggested filter we can just compare limited number of highest bit of our reads and filter out big portion of them without doing \emph{full computation} and without \emph{transferring large portion} of our data. For tuning our filter we need to find a good balance point between following parameters:
+
+\begin{enumerate}
+\item Data level parallelism. How many reads we are going to compare in a same time? Our word processor's size is limited but we can choose number of reads we are going to load into a word processor with varying number of \underline{bits per reads}.
+\end{enumerate}
+  
   
